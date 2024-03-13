@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptar</title>
+    <link rel="stylesheet" type="text/css" href="Encriptar.css">
+</head>
+<body>
+    <div class="fundoe">
+        <a href="Inicial.html"><img src="seta.png" alt="icone-voltar" class="iconee"/></a>
+        <h1 class="tituloe">Encriptar</h1>
+    </div>
+    <form>
+        <div class="input-single">
+            <label for="texto">Digite uma mensagem a ser encriptada:</label>
+            <input type="text" id="texto" name="texto"/>
+            <label for="chave"> Digite a chave pública recebida previamente:</label>
+            <input type="number" id="chave" name="chave"/>
+            <input type="submit" onClick="encriptar()" class="btn" value="Encriptar!"/>
+        </div>
+    </form>
+    
+    <script type="text/javascript" src="FileSaver.js"></script>
+    <script>
+        function encriptar(){
+            const texto = document.getElementById('texto').value;
+            const chave = document.getElementById('chave').value;
+    
+            let blob = new Blob(['Mensagem: ', texto, '\n', 'Chave pública: ', chave],
+            {type: 'text/plain;charset=utf-8'});
+    
+            saveAs(blob, 'encriptar.txt'); 
+            }
+    </script>
+
+</body>
+</html>
